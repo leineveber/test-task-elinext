@@ -1,0 +1,15 @@
+@import '../../styles/theme.scss';
+@import '../../styles/breakpoints.scss';
+
+.header {
+  background: $background-header;
+  color: $text-contrast;
+
+  & .container {
+    padding: 5rem;
+  }
+
+  &__button {
+    font-size: 4rem;
+  }
+}

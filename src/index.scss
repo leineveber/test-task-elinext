@@ -34,3 +34,9 @@ body {
   max-width: 1264px;
   padding: 12rem 1.6rem;
 }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
