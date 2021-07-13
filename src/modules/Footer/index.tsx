@@ -17,7 +17,7 @@ const Footer: React.FC = (): React.ReactElement => {
             </Link>
           </li>
           <li className='footer__list-item'>
-            <Link to='/'>
+            <Link to='/bookmarks'>
               <i className='fas fa-bookmark' />
             </Link>
           </li>

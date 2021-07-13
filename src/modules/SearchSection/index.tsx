@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Title from '../../components/Title';
 import Input from '../../components/Input';
 import Card from '../../components/Card';
+import Pagination from '../../components/Pagination';
 
 // hooks
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
@@ -52,10 +53,7 @@ const SearchSection: React.FC = (): React.ReactElement => {
     <section className='search-section'>
       <main>
         <div className='container'>
-          <Title
-            className='search-section__title'
-            text="Let's find some images!"
-          />
+          <Title text="Let's find some images!" />
           <div className='search-section__input-wrapper'>
             <Input
               className='search-section__input'
@@ -67,12 +65,26 @@ const SearchSection: React.FC = (): React.ReactElement => {
               onChange={handleChangeInput}
             />
           </div>
-          {images.length !== 0 && (
-            <div className='row'>
-              {images.map((img: IImage) => (
-                <Card src={img.imgUrl} alt={img.title} title={img.title} />
-              ))}
-            </div>
+          {images.length !== 0 ? (
+            <>
+              <Pagination page={page} setPage={setPage} />
+              <div className='row'>
+                {images.map((img: IImage) => (
+                  <Card
+                    key={img.id}
+                    id={img.id}
+                    src={img.imgUrl}
+                    alt={img.title}
+                    title={img.title}
+                  />
+                ))}
+              </div>
+              <Pagination page={page} setPage={setPage} />
+            </>
+          ) : (
+            <p className='alert'>
+              No images here. Would you try to search for anything else?
+            </p>
           )}
         </div>
       </main>

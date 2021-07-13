@@ -4,24 +4,48 @@ import React, { useState } from 'react';
 import Input from '../Input';
 import Button from '../Button';
 
+// hooks
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+
+// actions
+import {
+  addToBookmarks,
+  removeFromBookmarks,
+} from '../../redux/slices/bookmarksSlice';
+
 // styles
 import './Card.styles.scss';
 
 interface ICardProps {
+  id: string;
   src: string;
   alt: string;
   title: string;
+  tags?: string;
 }
 
 const Card: React.FC<ICardProps> = ({
+  id,
   src,
   alt,
   title,
+  tags,
 }): React.ReactElement => {
-  const [tag, setTag] = useState('');
+  const dispatch = useAppDispatch();
+  const bookmarks = useAppSelector((state) => state.bookmarks.data);
+  const isAddedToBookmarks = bookmarks.map((el) => el.id).includes(id);
+  const [value, setValue] = useState('');
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTag(event.target.value);
+    setValue(event.target.value);
+  };
+
+  const handleAddToBookmarks = () => {
+    dispatch(addToBookmarks({ title, id, imgUrl: src, tags: value }));
+  };
+
+  const handleRemoveFromBookmarks = () => {
+    dispatch(removeFromBookmarks(id));
   };
 
   return (
@@ -30,16 +54,25 @@ const Card: React.FC<ICardProps> = ({
         <img src={src} alt={alt} />
       </div>
       <p className='card__title'>{title}</p>
-      <Input
-        className='card__input'
-        type='text'
-        name='tags'
-        id='tags'
-        placeholder='Any tags?'
-        value={tag}
-        onChange={handleChangeInput}
+      {!tags && (
+        <Input
+          className='card__input'
+          type='text'
+          name='tags'
+          id={id}
+          placeholder='Any tags?'
+          value={value}
+          onChange={handleChangeInput}
+        />
+      )}
+      {tags && <p className='card__tags'>Tags: {tags}</p>}
+      <Button
+        className='card__btn button'
+        text={isAddedToBookmarks ? 'Remove from bookmarks!' : 'Bookmark it!'}
+        onClick={
+          isAddedToBookmarks ? handleRemoveFromBookmarks : handleAddToBookmarks
+        }
       />
-      <Button className='card__btn button' text='Bookmark it!' />
     </div>
   );
 };

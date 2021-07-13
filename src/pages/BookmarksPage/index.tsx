@@ -1,7 +1,18 @@
 import React from 'react';
 
-const BookmarksPage: React.FC = (): null => {
-  return null;
+// modules
+import Header from '../../modules/Header';
+import BookmarksSection from '../../modules/BookmarksSection';
+import Footer from '../../modules/Footer';
+
+const BookmarksPage: React.FC = (): React.ReactElement => {
+  return (
+    <>
+      <Header />
+      <BookmarksSection />
+      <Footer />
+    </>
+  );
 };
 
 export default BookmarksPage;

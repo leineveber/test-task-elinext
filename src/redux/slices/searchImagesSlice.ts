@@ -8,7 +8,6 @@ import IApiOptions from '../../interfaces/IApiOptions';
 
 interface ISearchImagesSliceState {
   data: Array<IImage>;
-  page: number | null;
   pages: number | null;
   isLoading: boolean;
   error: string | null;
@@ -16,7 +15,6 @@ interface ISearchImagesSliceState {
 
 const initialState: ISearchImagesSliceState = {
   data: [],
-  page: null,
   pages: null,
   isLoading: false,
   error: null,
@@ -29,13 +27,12 @@ const searchImagesSlice = createSlice({
     fetchRequested(state, action: PayloadAction<IApiOptions>) {
       state.isLoading = true;
       state.data = [];
-      state.page = null;
       state.error = null;
     },
 
     fetchSucceeded(state, action: PayloadAction<IResponse>) {
       const {
-        photos: { photo, page, pages },
+        photos: { photo, pages },
       } = action.payload;
 
       const picArray = photo.map((pic: IPic): IImage => {
@@ -51,7 +48,6 @@ const searchImagesSlice = createSlice({
       });
 
       state.data = picArray;
-      state.page = page;
       state.pages = pages;
       state.isLoading = false;
     },
@@ -59,6 +55,7 @@ const searchImagesSlice = createSlice({
     fetchFailed(state, action: PayloadAction<string>) {
       state.error = action.payload;
       state.isLoading = false;
+      state.data = [];
     },
   },
 });
