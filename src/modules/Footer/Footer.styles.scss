@@ -1,0 +1,27 @@
+@import '../../styles/theme.scss';
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  color: $text-main;
+  font-size: 4rem;
+
+  &__nav {
+    width: 40rem;
+    margin: 0 auto;
+    border: 0.1rem solid $text-main;
+    padding: 5rem;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
+    border-bottom: 0;
+  }
+
+  &__list-item {
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: lighten($color: $text-main, $amount: 10);
+    }
+  }
+}
