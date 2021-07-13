@@ -63,12 +63,13 @@ body {
   font-family: 'Roboto', sans-serif;
   color: $text-main;
   font-size: 2.4rem;
+  min-width: 425px;
 }
 
 .container {
   margin: 0 auto;
   max-width: 1264px;
-  padding: 6rem 1.6rem;
+  padding: 12rem 1.6rem;
 }
 
 .row {
@@ -95,4 +96,34 @@ body {
 
 .alert {
   text-align: center;
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  body {
+    font-size: 1.8rem;
+  }
+
+  .container {
+    max-width: 722px;
+    padding: 8rem 1.6rem;
+  }
+
+  .button {
+    padding: 1.6rem;
+  }
+}
+
+@media only screen and (max-width: $breakpoint-mobile) {
+  body {
+    font-size: 1.4rem;
+  }
+
+  .container {
+    max-width: 400px;
+    padding: 5rem 1.6rem;
+  }
+
+  .button {
+    padding: 1.2rem;
+  }
 }

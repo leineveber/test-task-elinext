@@ -1,10 +1,11 @@
 @import '../../styles/theme.scss';
+@import '../../styles/breakpoints.scss';
 
 .footer {
   bottom: 0;
   width: 100%;
   position: fixed;
-  color: $text-main;
+  color: #9796f0;
   font-size: 4rem;
   background: $background-main;
   border-top-left-radius: 0.8rem;
@@ -27,7 +28,25 @@
     transition: all 0.3s ease;
 
     &:hover {
-      color: lighten($color: $text-main, $amount: 10);
+      color: $text-main;
+    }
+  }
+}
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .footer {
+    &__nav {
+      padding: 3rem;
+    }
+  }
+}
+
+@media only screen and (max-width: $breakpoint-mobile) {
+  .footer {
+    font-size: 3rem;
+
+    &__nav {
+      padding: 1.5rem;
     }
   }
 }

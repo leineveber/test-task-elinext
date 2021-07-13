@@ -36,3 +36,28 @@
     }
   }
 }
+
+@media only screen and (max-width: $breakpoint-tablet) {
+  .header {
+    & .container {
+      padding: 4rem;
+    }
+  }
+}
+
+@media only screen and (max-width: $breakpoint-mobile) {
+  .header {
+    & .container {
+      padding: 3rem;
+    }
+
+    &__button {
+      font-size: 3rem;
+
+      &::after {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+  }
+}

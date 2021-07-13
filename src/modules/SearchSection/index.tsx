@@ -53,7 +53,7 @@ const SearchSection: React.FC = (): React.ReactElement => {
     <section className='search-section'>
       <main>
         <div className='container'>
-          <Title text="Let's find some images!" />
+          <Title text='What images are you looking for?' />
           <div className='search-section__input-wrapper'>
             <Input
               className='search-section__input'
