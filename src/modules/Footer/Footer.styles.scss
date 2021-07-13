@@ -2,16 +2,18 @@
 
 .footer {
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
   width: 100%;
   position: fixed;
   color: $text-main;
   font-size: 4rem;
   background: $background-main;
-  width: 40rem;
   border-top-left-radius: 0.8rem;
   border-top-right-radius: 0.8rem;
+
+  & .container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
   &__nav {
     border: 0.1rem solid $text-main;
