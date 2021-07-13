@@ -1,0 +1,36 @@
+@import './styles/theme.scss';
+@import './styles/breakpoints.scss';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+button {
+  background-color: transparent;
+  color: inherit;
+  font-size: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: $text-main;
+  font-size: 2.4rem;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1264px;
+  padding: 12rem 1.6rem;
+}

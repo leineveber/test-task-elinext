@@ -10,7 +10,7 @@ import { store } from './redux/store';
 import App from './App';
 
 // styles
-import './index.css';
+import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
