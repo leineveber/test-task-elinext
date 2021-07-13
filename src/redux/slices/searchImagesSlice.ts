@@ -7,7 +7,7 @@ import IImage from '../../interfaces/IImage';
 import IApiOptions from '../../interfaces/IApiOptions';
 
 interface ISearchImagesSliceState {
-  data: Array<IPic>;
+  data: Array<IImage>;
   page: number | null;
   pages: number | null;
   isLoading: boolean;

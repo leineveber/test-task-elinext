@@ -3,9 +3,10 @@ import React, { useCallback, useEffect, useState } from 'react';
 // components
 import Title from '../../components/Title';
 import Input from '../../components/Input';
+import Card from '../../components/Card';
 
 // hooks
-import { useAppDispatch } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import useDebounce from '../../hooks/useDebounce';
 
 // actions
@@ -17,11 +18,15 @@ import { FLICKR_BASE_API, FLICKR_KEY } from '../../api/flickrApi';
 // constants
 import MAX_IMAGES_PER_PAGE from '../../constants/maxImagesPerPage';
 
+// interfaces
+import IImage from '../../interfaces/IImage';
+
 // styles
 import './SearchSection.styles.scss';
 
 const SearchSection: React.FC = (): React.ReactElement => {
   const dispatch = useAppDispatch();
+  const images = useAppSelector((state) => state.searchImages.data);
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
 
@@ -62,6 +67,13 @@ const SearchSection: React.FC = (): React.ReactElement => {
               onChange={handleChangeInput}
             />
           </div>
+          {images.length !== 0 && (
+            <div className='row'>
+              {images.map((img: IImage) => (
+                <Card src={img.imgUrl} alt={img.title} title={img.title} />
+              ))}
+            </div>
+          )}
         </div>
       </main>
     </section>

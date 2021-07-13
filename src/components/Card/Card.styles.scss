@@ -1,0 +1,29 @@
+@import '../../styles/theme.scss';
+
+.card {
+  width: calc(50% - 3rem);
+  padding: 2rem;
+  border: 0.1rem solid $text-main;
+
+  margin-bottom: 5rem;
+  &__image {
+    // height: 40rem;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    border: 0.1rem solid $text-main;
+    border-radius: 0.8rem;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &__btn {
+    margin: 0 auto;
+  }
+}
