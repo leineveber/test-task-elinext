@@ -13,7 +13,7 @@ const Header: React.FC = (): React.ReactElement => {
       <div className='container'>
         <div className='row'>
           <Logo />
-          <Link className='header__button' to='/signup'>
+          <Link className='header__button' to='/signin'>
             <i className='fas fa-user-circle' />
           </Link>
         </div>
