@@ -11,5 +11,28 @@
 
   &__button {
     font-size: 4rem;
+    position: relative;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $text-main;
+    }
+
+    &::after {
+      content: '';
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      width: 5rem;
+      height: 5rem;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    &:hover::after {
+      border-color: $text-main;
+    }
   }
 }

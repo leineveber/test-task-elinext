@@ -1,0 +1,12 @@
+@import '../../styles/theme.scss';
+
+.logo {
+  padding: 1rem;
+  border: 1px solid $text-contrast;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: $text-main;
+    border-color: $text-main;
+  }
+}
