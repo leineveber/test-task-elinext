@@ -41,11 +41,12 @@
 
 @media only screen and (max-width: $breakpoint-tablet) {
   .card {
+    width: 100%;
     padding: 1.7rem;
     margin-bottom: 3.8rem;
 
     &__image {
-      height: 30rem;
+      height: 40rem;
     }
   }
 }
@@ -54,9 +55,5 @@
   .card {
     padding: 1.4rem;
     margin-bottom: 2.6rem;
-
-    &__image {
-      height: 15rem;
-    }
   }
 }
