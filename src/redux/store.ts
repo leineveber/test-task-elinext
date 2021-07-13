@@ -1,12 +1,23 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 
+// persist
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 // reducers
 import searchImages from './slices/searchImagesSlice';
-import bookmarks from './slices/bookmarksSlice';
+import bookmarksReducer from './slices/bookmarksSlice';
 
 // saga
 import createSagaMiddleware from '@redux-saga/core';
 import rootSaga from './sagas/rootSaga';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const bookmarks = persistReducer(persistConfig, bookmarksReducer);
 
 const middleware = getDefaultMiddleware({
   immutableCheck: true,
@@ -22,6 +33,8 @@ export const store = configureStore({
   middleware,
   devTools: process.env.NODE_ENV !== 'production',
 });
+
+export const persistor = persistStore(store);
 
 sagaMiddleware.run(rootSaga);
 
