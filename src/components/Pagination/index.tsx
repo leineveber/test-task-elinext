@@ -6,6 +6,7 @@ import Button from '../Button';
 // hooks
 import { useAppSelector } from '../../redux/hooks';
 
+// styles
 import './Pagination.styles.scss';
 
 interface IPaginationProps {
@@ -26,6 +27,7 @@ const Pagination: React.FC<IPaginationProps> = ({
   const handleIncrease = () => {
     setPage((state) => state + 1);
   };
+
   return (
     <div className='pagination'>
       <div className='row'>
