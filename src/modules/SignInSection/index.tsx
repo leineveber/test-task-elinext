@@ -33,6 +33,10 @@ const SignInSection: React.FC = (): React.ReactElement => {
           client_secret: CLIENT_SECRET,
           grant_type: 'authorization_code',
         },
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
       });
     }
   }, []);
